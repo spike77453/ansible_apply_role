@@ -1,0 +1,45 @@
+[build-system]
+requires = ["setuptools >= 61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ansible_apply_role"
+version = "0.1.0"
+dependencies = [
+  "jinja2 ~=3.1",
+]
+requires-python = ">=3.6"
+license = "GPL-2.0-or-later"
+authors = [
+  {name = "Christian Schürmann", email = "spike@fedoraproject.org"},
+]
+description = "Apply particular Ansible role(s) to host(s)"
+readme = "README.md"
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: System Administrators",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.6",
+  "Programming Language :: Python :: 3.7",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Programming Language :: Python :: 3.14",
+  "Topic :: System",
+  "Topic :: System :: Systems Administration",
+  "Topic :: Utilities",
+]
+
+[project.scripts]
+ansible_apply_role = "ansible_apply_role:main"
+
+[project.urls]
+Homepage = "https://gitlab.com/spike77453/ansible_apply_role"
+Repository = "https://gitlab.com/spike77453/ansible_apply_role.git"
+
+[tool.setuptools]
+py-modules = ["ansible_apply_role"]

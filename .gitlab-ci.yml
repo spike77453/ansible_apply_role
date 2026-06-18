@@ -1,0 +1,21 @@
+image: python:3.14.6-trixie@sha256:cac80dc03dafb0e9ffc5d390ada6c2e8f6323a275bb89c1d132fedf7a195e054
+
+pypi:
+  stage: deploy
+  id_tokens:
+    PYPI_ID_TOKEN:
+      aud: pypi
+  script:
+    - pip install build twine
+    - python -m build
+    - python -m twine upload dist/*
+  rules:
+    - if: '$CI_COMMIT_TAG =~ /^v\d+\.\d+\.\d+([abc]\d*)?$/'  # PEP-440 compliant version (tags)
+
+include:
+  - project: 'renovate-bot/renovate-runner'
+    file: '/templates/renovate.gitlab-ci.yml'
+    ref: c4bc3c83e13ef47f496e2be8b986b16c1dece0bf # v26.0.1
+
+variables:
+  CI_RENOVATE_IMAGE: ghcr.io/renovatebot/renovate:43.231.2@sha256:1f7eddcf467bd46aade3ecc8d959d108ab8e121464ca5f265c6837b6efca9343
