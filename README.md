@@ -2,6 +2,12 @@
 
 Apply particular Ansible role(s) to host(s)
 
+## Installation
+
+```
+pip install ansible-apply-role
+```
+
 ## Usage
 
 ```
